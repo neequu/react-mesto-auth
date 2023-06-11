@@ -1,0 +1,16 @@
+.header {
+    margin-top: 28px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #545454;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .header {
+        margin-top: 45px;
+        padding-bottom: 41px;
+        --container-padding: 27px;
+        margin-inline: auto;
+        width: min(var(--max-width), 100% - var(--container-padding) * 2);
+    }
+}

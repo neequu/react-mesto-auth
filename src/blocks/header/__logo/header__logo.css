@@ -1,0 +1,12 @@
+.header__logo {
+    max-width: 104px;
+    padding-inline: var(--container-padding);
+}
+
+
+@media (min-width: 768px) {
+    .header__logo {
+        max-width: 142px;
+        padding-inline: 0;
+    }
+}
