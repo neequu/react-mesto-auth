@@ -48,7 +48,7 @@ function AuthForm(props) {
         onChange={handleInput}
         errorMsg="Введите корректный email"
         // pattern="[a-z0-9A-Z]+@[a-zA-Z]+\.[a-zA-Z]{2,3}"
-        // autocomplete="username"
+        autoComplete="username"
       />
 
       <FormInput 

@@ -159,6 +159,10 @@ function Root() {
   const handleLogin = async (data) => {
     try {
       const {token} = await signin(data)
+        
+      if (!token) throw Error('токен неверный')
+      localStorage.setItem('jwt', token)
+
       authorize(token)
     } 
     catch (e) { 
@@ -170,8 +174,6 @@ function Root() {
 
   const authorize = async (token) => {
     try {
-      if (!token) throw Error('токен неверный')
-      localStorage.setItem('jwt', token)
       const loginInfo = await getData(token)
       const {data: {_id, email}} = loginInfo
 

@@ -18,7 +18,6 @@ function FormInput(props) {
 
   useEffect(() => {
     if (valid === false && focused) {
-      console.log(valid);
       setShow(true)
       getErr()
     } else {
@@ -26,9 +25,6 @@ function FormInput(props) {
     }
 
   }, [valid, focused, error])
-
-
- 
 
   return (
     <>
