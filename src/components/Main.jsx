@@ -2,12 +2,17 @@ import React from 'react';
 import loadingImage from '../images/profile/loading.gif'
 import { CurrentUserContext } from '../contexts/CurrentUserContext';
 import Card from './Card';
+import Footer from './Footer.jsx'
 
 function Main(props) {
+
+  
+
   const currentUser = React.useContext(CurrentUserContext);
   const {onEditAvatar, onEditProfile, onAddPlace, onCardClick, cards, onCardLike, onCardDeleteReq} = props 
 
 return (
+  <>
   <main className="main">
     <section className="profile">
       <div className="profile__avatar-container" id="change-avatar" onClick={onEditAvatar}>
@@ -44,8 +49,9 @@ return (
           /> 
         ))} 
     </section> 
-
   </main>
+ <Footer/>
+</>
   
       );
   }

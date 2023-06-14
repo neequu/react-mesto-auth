@@ -1,17 +1,29 @@
-function PopupWithForm(props) {
-    const {isOpen, name, onClose, children, buttonText, title, onSubmit} = props
+import React, { useState } from 'react'
+import Popup from './Popup'
+
+function PopupWithForm({isOpen, name, onClose, children, buttonText, title, onSubmit}) {
     const handleSubmit = async e => {
       e.preventDefault()
       onSubmit()
       await new Promise(res => setTimeout(res, 1000))
       e.target.reset()
     }
-    
+
+    const form = React.useRef()
+
+
+    const handleClose = () => {
+      onClose()
+      form.current.reset()
+    }
+
     return (
-      <div 
-        className={`popup ${isOpen ? 'popup_opened' : ''}`} 
-        id={`popup-${name}`}
+      <Popup 
+        isOpen={isOpen}
+        name={name}
+        onClose={handleClose}
       >
+        
         <div className="popup__container">
           <button type="button" className="popup__close-button"
             data-button="close" onClick={onClose}></button>
@@ -21,6 +33,7 @@ function PopupWithForm(props) {
             id={`${name}-form`} 
             className="form popup__form"
             onSubmit={handleSubmit}
+            ref={form}
           >
             <fieldset className="form__set">
               {children}
@@ -33,7 +46,7 @@ function PopupWithForm(props) {
             </fieldset>
           </form>
         </div>
-      </div>
+      </Popup>
   
     );
   }

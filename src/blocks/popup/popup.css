@@ -1,6 +1,7 @@
 .popup {
     position: fixed;
     width: 100vw;
+    outline: 0;
     /* width: 100dvw; */
     height: 100vh;
     /* height: 100dvh; */
@@ -12,8 +13,12 @@
     display: grid;
     place-items: center;
 
-    visibility: hidden;
     opacity: 0;
-    transition: visibility 280ms, opacity 280ms;
+    visibility: hidden;
+    transition: opacity 280ms, visibility 280ms;
 }
 
+.popup * {
+    opacity: 0;
+    transition: all 260ms ease;
+}

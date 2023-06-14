@@ -15,9 +15,14 @@
     background-size: cover;
     background-repeat: no-repeat;
     border: none;
+    display: none;
 
     cursor: pointer;
     transition: opacity 260ms ease;
+}
+
+.popup_opened .popup__close-button {
+    display: block;
 }
 
 .popup__close-button:is(:hover, :focus) {

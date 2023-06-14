@@ -1,10 +1,16 @@
+import Popup from './Popup'
+
 function ImagePopup(props) {
     const {name, link} = props.card
     const {isOpen, onClose} = props
   
 
     return (
-    <div className={`popup popup_type_image ${isOpen ? 'popup_opened' : ''}`} id="popup-image">
+      <Popup
+        name="image"
+        isOpen={isOpen}
+        onClose={onClose}
+      >
       <div className="popup__expanded-image-container">
       <button type="button" className="popup__close-button"
           data-button="close" onClick={onClose}></button>
@@ -13,7 +19,7 @@ function ImagePopup(props) {
           <figcaption id="popup-caption" className="popup__caption">{name}</figcaption>
         </figure>
       </div>
-    </div>
+      </Popup>
   
       );
   }

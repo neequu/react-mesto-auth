@@ -1,5 +1,6 @@
 import React from 'react'
-import PopupWithForm from './PopupWithForm.js'
+import PopupWithForm from './PopupWithForm.jsx'
+import FormInput from './FormInput.jsx'
 
 function PlacePopup(props) {
     const {isOpen, onClose, onAddPlace, isLoadingPlace} = props
@@ -22,7 +23,7 @@ function PlacePopup(props) {
           buttonText={isLoadingPlace ? 'Создание...' : 'Создать'}
           onSubmit={handleSubmit}
         >
-            <input 
+            <FormInput 
               id="place-title" 
               data-input="place-name" 
               type="text"
@@ -33,9 +34,9 @@ function PlacePopup(props) {
               minLength="2"
               maxLength="30"
               onChange={e => setPlaceName(e.target.value)}
+              errorMsg="Введите название с количеством символов 2-30"
             />
-            <span id="place-title-error" className="form__input-error"></span>
-            <input 
+            <FormInput 
               id="place-link" 
               data-input="place-link" 
               type="url"
@@ -44,8 +45,8 @@ function PlacePopup(props) {
               name="link" 
               required
               onChange={e => setPlaceLink(e.target.value)}
+              errorMsg="Введите ссылку"
             />
-            <span id="place-link-error" className="form__input-error"></span>
         </PopupWithForm>
   );
   }

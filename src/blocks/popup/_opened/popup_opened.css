@@ -2,3 +2,8 @@
     visibility: visible;
     opacity: 1;
 }
+
+.popup_opened * {
+    opacity: 1;
+    transition: all 260 ease;
+}

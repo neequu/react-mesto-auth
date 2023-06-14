@@ -1,17 +1,17 @@
-import PopupWithForm from './PopupWithForm.js'
-import {useRef} from 'react'
+import PopupWithForm from './PopupWithForm.jsx'
+import FormInput from './FormInput.jsx'
+import { useState } from 'react';
+
 
 
 function AvatarPopup(props) {
     const {isOpen, onClose, onUpdateAvatar, isLoadingAvatar} = props
-    const avatar = useRef(null);
+    const [avatar, setAvatar] = useState(null);
 
-    const handleSubmit = () => { 
-      onUpdateAvatar({
-        avatar: avatar.current.value,
-      });
+    const handleSubmit = () => onUpdateAvatar( {avatar: avatar} )
 
-    }
+    const handleChange = e => setAvatar(e.target.value)
+
     return (
         <PopupWithForm
           name="avatar"
@@ -21,7 +21,7 @@ function AvatarPopup(props) {
           buttonText={isLoadingAvatar ? 'Сохранение...' :'Сохранить'}
           onSubmit={handleSubmit}
         >
-            <input 
+            <FormInput 
               id="avatar-link" 
               data-input="avatar-link" 
               type="url"
@@ -29,10 +29,11 @@ function AvatarPopup(props) {
               placeholder="Ссылка на картинку" 
               name="link" 
               required
-              ref={avatar}
+              onChange={handleChange}
+              errorMsg="Вставьте ссылку"
+              onClose={onClose}
             />
 
-            <span id="avatar-link-error" className="form__input-error"></span>
         </PopupWithForm>
   );
   }
