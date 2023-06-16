@@ -16,6 +16,7 @@
 @import url(../blocks/header/header__auth-overlay/header__auth-overlay.css);
 @import url(../blocks/header/header__auth-overlay/header__auth-overlay_active/header__auth-overlay_active.css);
 @import url(../blocks/header/_logged-in/header_logged-in.css);
+@import url(../blocks/header/__auth-container/_active/header__auth-container_active.css);
 
 @import url(../blocks/profile/profile.css);
 @import url(../blocks/profile/__avatar/profile__avatar.css);

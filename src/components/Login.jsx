@@ -1,14 +1,14 @@
 import AuthForm from "./AuthForm";
 
-function Login(props) {
+function Login({ onLogin, isLoading }) {
+  const handleSubmit = (email, password) => onLogin(email, password);
 
-  const handleSubmit = (email, password) => {
-    props.onLogin(email, password)
-  }
   return (
-    <>
-      <AuthForm title="Вход" buttonText="Войти" onSubmit={handleSubmit}/>
-    </>
+    <AuthForm
+      title="Вход"
+      buttonText={isLoading ? "Загрузка..." : "Войти"}
+      onSubmit={handleSubmit}
+    />
   );
 }
 

@@ -1,18 +1,16 @@
-import PopupWithForm from './PopupWithForm.jsx'
+import PopupWithForm from "./PopupWithForm.jsx";
 
-function ConfirmPopup(props) {
-  const {isOpen, onClose, onSubmit, isDeletingCard} = props
-
+function ConfirmPopup({ isOpen, onClose, onSubmit, isLoading }) {
   return (
     <PopupWithForm
       name="confirm"
       title="Вы уверены?"
-      buttonText={isDeletingCard ? 'Загрузка...' : 'Да'}
+      buttonText={isLoading ? "Загрузка..." : "Да"}
       isOpen={isOpen}
       onClose={onClose}
       onSubmit={onSubmit}
     />
-);
+  );
 }
 
 export default ConfirmPopup;

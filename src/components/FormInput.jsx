@@ -1,43 +1,17 @@
-import {React, useEffect, useState} from 'react'
-function FormInput(props) {
-
-  const { onChange, errorMsg, value,...inputProps } = props;
-  const [valid, setValid] = useState(null)
-  const [focused, setFocused] = useState(false)
-  const [error, setError] = useState('')
-
-  const [show, setShow] = useState(false)
-
-  const getErr = () => valid ? setError('') : setError(errorMsg)
-
-  const handleChange = e => {
-    onChange(e)
-    setValid(e.target.validity.valid)
-  }
-  const handleFocus = () => setFocused(true)
-
-  useEffect(() => {
-    if (valid === false && focused) {
-      setShow(true)
-      getErr()
-    } else {
-      setShow(false)
-    }
-
-  }, [valid, focused, error])
+function FormInput({ onChange, errorMsg, value, ...inputProps }) {
+  const handleChange = (e) => onChange(e);
 
   return (
     <>
-      <input 
-        {...inputProps}
-        onChange={handleChange}
-        onBlur={handleFocus}
-        value={value}
-      />
-      <p 
-        className={`form__input-error ${show ? 'form__input-error_active' : ''}`} 
-      >{error}</p>
-  </>
+      <input {...inputProps} onChange={handleChange} value={value} />
+      <p
+        className={`form__input-error ${
+          errorMsg?.length ? "form__input-error_active" : ""
+        }`}
+      >
+        {errorMsg}
+      </p>
+    </>
   );
 }
 

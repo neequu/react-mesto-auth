@@ -15,8 +15,6 @@
   }
 }
 
-
-
 @media (max-width: 424.9px) {
   .header__auth-container {
   flex-direction: column;
@@ -25,11 +23,6 @@
   transform: translateY(-110%);
   opacity: 0;
   transition: transform 500ms ease-in-out, opacity 1000ms linear;
-  }
-
-  .header__auth-container_active {
-    transform: translateY(0);
-    opacity: 1;
   }
 }
 @media (min-width: 424.00001px ) and (max-width:424.89px) {
